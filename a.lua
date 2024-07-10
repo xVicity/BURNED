@@ -1725,7 +1725,8 @@ end
 function Library:section(options)
 	options = self:set_defaults({
 		Name = "Section",
-		Size = 18
+		Size = 18,
+		Bold = false
 	}, options)
 
 	local sectionContainer = self.container:object("TextButton", {
@@ -1737,12 +1738,16 @@ function Library:section(options)
 		Position = UDim2.new(0.5, 0, 0.5, 0),
 		Text = options.Name,
 		TextSize = options.Size,
+
 		Theme = {
 			TextColor3 = "StrongText",
 			BackgroundColor3 = {"Secondary", -10}
 		},
 		TextXAlignment = Enum.TextXAlignment.Center,
-		AnchorPoint = Vector2.new(0.5, 0.5)
+		AnchorPoint = Vector2.new(0.5, 0.5),
+		if options.Bold then 
+		Font = Enum.Font.SourceSansBold 
+		end
 	})
 	text.Size = UDim2.fromOffset(text.TextBounds.X + 4, text.TextBounds.Y)
 
