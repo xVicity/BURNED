@@ -918,10 +918,10 @@ function Library:create(options)
 	})
 
 	rawset(mt, "creditsContainer", creditsTab.container)
-  creditsTab:section(Name = "BURNED developers")
+--  	creditsTab:section(Name = "BURNED developers")
 	creditsTab:credit{Name = "Hecker4118", Description = "basically everything", Discord = "Hecker4118"}
 	creditsTab:credit{Name = "Smoke", Description = "Stoic Bomb and Collateral Ruin Animations (not the code)", Discord = "smoke_x2"}
-  creditsTab:section(Name = "Mercury UI Library Developers (DISCORD USERS PROBABLY OUTDATED)")
+ --	creditsTab:section(Name = "Mercury UI Library Developers (DISCORD USERS PROBABLY OUTDATED)")
 	creditsTab:credit{Name = "Abstract", Description = "UI Library Developer", Discord = "Abstract#8007", V3rmillion = "AbstractPoo"}
 	creditsTab:credit{Name = "Deity", Description = "UI Library Developer", Discord = "Deity#0228", V3rmillion = "0xDEITY"}
 
