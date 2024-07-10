@@ -1744,14 +1744,15 @@ function Library:section(options)
 			BackgroundColor3 = {"Secondary", -10}
 		},
 		TextXAlignment = Enum.TextXAlignment.Center,
-		AnchorPoint = Vector2.new(0.5, 0.5),
-		if options.Bold then 
-		Font = Enum.Font.SourceSansBold 
-		end
+		AnchorPoint = Vector2.new(0.5, 0.5)
 	})
 	text.Size = UDim2.fromOffset(text.TextBounds.X + 4, text.TextBounds.Y)
-
-
+	
+		if options.Bold then 
+		if options.Bold == true then
+		text.Font = Enum.Font.SourceSansBold 
+		end
+		end
 	local functionContainer = sectionContainer:object("Frame", {
 		Size = UDim2.fromScale(1, 1),
 		BackgroundTransparency = 1
