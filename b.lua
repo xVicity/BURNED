@@ -1738,7 +1738,6 @@ function Library:section(options)
 		Position = UDim2.new(0.5, 0, 0.5, 0),
 		Text = options.Name,
 		TextSize = options.Size,
-		if options.Bold == true then Font = Enum.Font.SourceSansBold end,
 		Theme = {
 			TextColor3 = "StrongText",
 			BackgroundColor3 = {"Secondary", -10}
