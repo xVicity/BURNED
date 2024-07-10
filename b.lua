@@ -1725,8 +1725,7 @@ end
 function Library:section(options)
 	options = self:set_defaults({
 		Name = "Section",
-		Size = 18,
-		Bold = false
+		Size = 18
 	}, options)
 
 	local sectionContainer = self.container:object("TextButton", {
