@@ -13,7 +13,7 @@
 █░░▄▀░░██████████░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀▄▀▄▀░░███████░░▄▀░░███████
 █░░░░░░██████████░░░░░░█░░░░░░░░░░░░░░█░░░░░░██░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░██░░░░░░░░░░███████░░░░░░███████
 ██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
-
+mercury
 edited: 1/26
 developers:
 v3rm AbstractPoo	discord Abstract#8007
@@ -1724,7 +1724,9 @@ end
 
 function Library:section(options)
 	options = self:set_defaults({
-		Name = "Section"
+		Name = "Section",
+		Size = 18,
+		Bold = false
 	}, options)
 
 	local sectionContainer = self.container:object("TextButton", {
@@ -1733,9 +1735,10 @@ function Library:section(options)
 	}):round(7):stroke("Secondary", 2)
 
 	local text = sectionContainer:object("TextLabel", {
-		Position = UDim2.new(0.5),
+		Position = UDim2.new(0.5, 0, 0.5, 0),
 		Text = options.Name,
-		TextSize = 18,
+		TextSize = options.Size,
+		if options.Bold == true then Font = Enum.Font.SourceSansBold end
 		Theme = {
 			TextColor3 = "StrongText",
 			BackgroundColor3 = {"Secondary", -10}
