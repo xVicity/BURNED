@@ -14,6 +14,19 @@
 █░░░░░░██████████░░░░░░█░░░░░░░░░░░░░░█░░░░░░██░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░██░░░░░░░░░░███████░░░░░░███████
 ██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
+ ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄  
+▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ 
+▐░▌░▌   ▐░▐░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌
+▐░▌▐░▌ ▐░▌▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░▌               ▐░▌     ▐░▌          ▐░▌       ▐░▌
+▐░▌ ▐░▐░▌ ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌       ▐░▌
+▐░▌  ▐░▌  ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░░░░░░░░░░░▌     ▐░▌     ▐░░░░░░░░░░░▌▐░▌       ▐░▌
+▐░▌   ▀   ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░█▀▀▀▀▀▀▀▀▀      ▐░▌     ▐░█▀▀▀▀▀▀▀▀▀ ▐░▌       ▐░▌
+▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░▌               ▐░▌     ▐░▌          ▐░▌       ▐░▌
+▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌ ▄▄▄▄█░█▄▄▄▄ ▐░▌           ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌
+▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ 
+ ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀  ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀  
+                                                                                                        
+
 edited: 1/26
 developers:
 v3rm AbstractPoo	discord Abstract#8007
@@ -911,6 +924,63 @@ function Library:create(options)
 		end,
 	}
 
+    function Library:section(options)
+        options = self:set_defaults({
+            Name = "Section",
+            Size = 18,
+            Bold = false
+        }, options)
+    
+        local sectionContainer = self.container:object("TextButton", {
+            BackgroundTransparency = 1,
+            Size = UDim2.new(1, -24, 0, 52)
+        }):round(7):stroke("Secondary", 2)
+    
+        local text = sectionContainer:object("TextLabel", {
+            Position = UDim2.new(0.5, 0, 0.5, 0),
+            Text = options.Name,
+            TextSize = options.Size,
+    
+            Theme = {
+                TextColor3 = "StrongText",
+                BackgroundColor3 = {"Secondary", -10}
+            },
+            TextXAlignment = Enum.TextXAlignment.Center,
+            AnchorPoint = Vector2.new(0.5, 0.5)
+        })
+        text.Size = UDim2.fromOffset(text.TextBounds.X + 4, text.TextBounds.Y)
+        
+            if options.Bold then 
+            if options.Bold == true then
+            text.Font = Enum.Font.SourceSansBold 
+            end
+            end
+        local functionContainer = sectionContainer:object("Frame", {
+            Size = UDim2.fromScale(1, 1),
+            BackgroundTransparency = 1
+        })
+    
+    
+        local layout = functionContainer:object("UIListLayout", {
+            Padding = UDim.new(0, 10),
+            HorizontalAlignment = Enum.HorizontalAlignment.Center
+        })
+    
+        functionContainer:object("UIPadding", {
+            PaddingTop = UDim.new(0, 10)
+        })
+    
+        return setmetatable({
+            statusText = self.statusText,
+            container = functionContainer,
+            sectionContainer = sectionContainer,
+            parentContainer = self.container,
+            Theme = self.Theme,
+            core = self.core,
+            parentLayout = self.layout,
+            layout = layout
+        }, Library)
+    end
 	local creditsTab = Library.tab(mt, {
 		Name = "Credits",
 		Internal = creditsTabIcon,
@@ -918,11 +988,14 @@ function Library:create(options)
 	})
 
 	rawset(mt, "creditsContainer", creditsTab.container)
-
+    creditsTab:section({Name = "Developers", Size = 30, Bold = true})
 	creditsTab:credit{Name = "Hecker4118", Description = "basically everything", Discord = "Hecker4118"}
-	creditsTab:credit{Name = "Smoke", Description = "Stoic Bomb and Collateral Ruin Animations (not the code)", Discord = "smoke_x2"}
+    creditsTab:section({Name = "UI Library Developers", Size = 30, Bold = true})
 	creditsTab:credit{Name = "Abstract", Description = "UI Library Developer", Discord = "Abstract#8007", V3rmillion = "AbstractPoo"}
 	creditsTab:credit{Name = "Deity", Description = "UI Library Developer", Discord = "Deity#0228", V3rmillion = "0xDEITY"}
+    creditsTab:section({Name = "Animation Grabbers", Size = 30, Bold = true})
+	creditsTab:credit{Name = "Smoke", Description = "Stoic Bomb and Collateral Ruin Animations (not the code)", Discord = "smoke_x2"}
+    creditsTab:credit{Name = "Hecker4118", Description = "hi again", Discord = "Hecker4118"}
   
 	return mt
 end
@@ -1722,65 +1795,7 @@ function Library:dropdown(options)
 	return methods
 end
 
-function Library:section(options)
-	options = self:set_defaults({
-		Name = "Section",
-		Size = 18,
-		Bold = false
-	}, options)
 
-	local sectionContainer = self.container:object("TextButton", {
-		BackgroundTransparency = 1,
-		Size = UDim2.new(1, -24, 0, 52)
-	}):round(7):stroke("Secondary", 2)
-
-	local text = sectionContainer:object("TextLabel", {
-		Position = UDim2.new(0.5, 0, 0.5, 0),
-		Text = options.Name,
-		TextSize = options.Size,
-
-		Theme = {
-			TextColor3 = "StrongText",
-			BackgroundColor3 = {"Secondary", -10}
-		},
-		TextXAlignment = Enum.TextXAlignment.Center,
-		AnchorPoint = Vector2.new(0.5, 0.5)
-	})
-	text.Size = UDim2.fromOffset(text.TextBounds.X + 4, text.TextBounds.Y)
-	
-		if options.Bold then 
-		print("oh bold exists huh")
-		if options.Bold == true then
-			print("true!!!")
-		text.Font = Enum.Font.SourceSansBold 
-		end
-		end
-	local functionContainer = sectionContainer:object("Frame", {
-		Size = UDim2.fromScale(1, 1),
-		BackgroundTransparency = 1
-	})
-
-
-	local layout = functionContainer:object("UIListLayout", {
-		Padding = UDim.new(0, 10),
-		HorizontalAlignment = Enum.HorizontalAlignment.Center
-	})
-
-	functionContainer:object("UIPadding", {
-		PaddingTop = UDim.new(0, 10)
-	})
-
-	return setmetatable({
-		statusText = self.statusText,
-		container = functionContainer,
-		sectionContainer = sectionContainer,
-		parentContainer = self.container,
-		Theme = self.Theme,
-		core = self.core,
-		parentLayout = self.layout,
-		layout = layout
-	}, Library)
-end
 
 function Library:button(options)
 	options = self:set_defaults({
@@ -2880,11 +2895,11 @@ function Library:credit(options)
 		end
 	end
 
-
-	self._resize_tab({
-		container = self.creditsContainer or self.container,
-		layout = (self.creditsContainer and self.creditsContainer.AbsoluteObject.UIListLayout) or self.layout
-	})
+	self:_resize_tab()
+	--self._resize_tab({
+	--	container = self.creditsContainer or self.container,
+	--	layout = (self.creditsContainer and self.creditsContainer.AbsoluteObject.UIListLayout) or self.layout
+	--})
 end
 
 function Library:_theme_selector()
