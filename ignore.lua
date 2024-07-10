@@ -1724,7 +1724,8 @@ end
 
 function Library:section(options)
 	options = self:set_defaults({
-		Name = "Section"
+		Name = "Section",
+		Size = 18
 	}, options)
 
 	local sectionContainer = self.container:object("TextButton", {
@@ -1735,7 +1736,7 @@ function Library:section(options)
 	local text = sectionContainer:object("TextLabel", {
 		Position = UDim2.new(0.5, 0, 0.5, 0),
 		Text = options.Name,
-		TextSize = 60,
+		TextSize = options.Size,
 		Theme = {
 			TextColor3 = "StrongText",
 			BackgroundColor3 = {"Secondary", -10}
