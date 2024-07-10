@@ -1733,9 +1733,9 @@ function Library:section(options)
 	}):round(7):stroke("Secondary", 2)
 
 	local text = sectionContainer:object("TextLabel", {
-		Position = UDim2.new(0.5, 0, -0.5),
+		Position = UDim2.new(0.5, 0, 0.5, 0),
 		Text = options.Name,
-		TextSize = 30,
+		TextSize = 60,
 		Theme = {
 			TextColor3 = "StrongText",
 			BackgroundColor3 = {"Secondary", -10}
