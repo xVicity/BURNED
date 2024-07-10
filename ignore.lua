@@ -14,6 +14,19 @@
 █░░░░░░██████████░░░░░░█░░░░░░░░░░░░░░█░░░░░░██░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░██░░░░░░░░░░███████░░░░░░███████
 ██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
+ ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄  
+▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ 
+▐░▌░▌   ▐░▐░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌
+▐░▌▐░▌ ▐░▌▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░▌               ▐░▌     ▐░▌          ▐░▌       ▐░▌
+▐░▌ ▐░▐░▌ ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌       ▐░▌
+▐░▌  ▐░▌  ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░░░░░░░░░░░▌     ▐░▌     ▐░░░░░░░░░░░▌▐░▌       ▐░▌
+▐░▌   ▀   ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░█▀▀▀▀▀▀▀▀▀      ▐░▌     ▐░█▀▀▀▀▀▀▀▀▀ ▐░▌       ▐░▌
+▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░▌               ▐░▌     ▐░▌          ▐░▌       ▐░▌
+▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌ ▄▄▄▄█░█▄▄▄▄ ▐░▌           ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌
+▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ 
+ ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀  ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀  
+                                                                                                        
+
 edited: 1/26
 developers:
 v3rm AbstractPoo	discord Abstract#8007
@@ -911,6 +924,63 @@ function Library:create(options)
 		end,
 	}
 
+    function Library:section(options)
+        options = self:set_defaults({
+            Name = "Section",
+            Size = 18,
+            Bold = false
+        }, options)
+    
+        local sectionContainer = self.container:object("TextButton", {
+            BackgroundTransparency = 1,
+            Size = UDim2.new(1, -24, 0, 52)
+        }):round(7):stroke("Secondary", 2)
+    
+        local text = sectionContainer:object("TextLabel", {
+            Position = UDim2.new(0.5, 0, 0.5, 0),
+            Text = options.Name,
+            TextSize = options.Size,
+    
+            Theme = {
+                TextColor3 = "StrongText",
+                BackgroundColor3 = {"Secondary", -10}
+            },
+            TextXAlignment = Enum.TextXAlignment.Center,
+            AnchorPoint = Vector2.new(0.5, 0.5)
+        })
+        text.Size = UDim2.fromOffset(text.TextBounds.X + 4, text.TextBounds.Y)
+        
+            if options.Bold then 
+            if options.Bold == true then
+            text.Font = Enum.Font.SourceSansBold 
+            end
+            end
+        local functionContainer = sectionContainer:object("Frame", {
+            Size = UDim2.fromScale(1, 1),
+            BackgroundTransparency = 1
+        })
+    
+    
+        local layout = functionContainer:object("UIListLayout", {
+            Padding = UDim.new(0, 10),
+            HorizontalAlignment = Enum.HorizontalAlignment.Center
+        })
+    
+        functionContainer:object("UIPadding", {
+            PaddingTop = UDim.new(0, 10)
+        })
+    
+        return setmetatable({
+            statusText = self.statusText,
+            container = functionContainer,
+            sectionContainer = sectionContainer,
+            parentContainer = self.container,
+            Theme = self.Theme,
+            core = self.core,
+            parentLayout = self.layout,
+            layout = layout
+        }, Library)
+    end
 	local creditsTab = Library.tab(mt, {
 		Name = "Credits",
 		Internal = creditsTabIcon,
@@ -1722,63 +1792,7 @@ function Library:dropdown(options)
 	return methods
 end
 
-function Library:section(options)
-	options = self:set_defaults({
-		Name = "Section",
-		Size = 18,
-		Bold = false
-	}, options)
 
-	local sectionContainer = self.container:object("TextButton", {
-		BackgroundTransparency = 1,
-		Size = UDim2.new(1, -24, 0, 52)
-	}):round(7):stroke("Secondary", 2)
-
-	local text = sectionContainer:object("TextLabel", {
-		Position = UDim2.new(0.5, 0, 0.5, 0),
-		Text = options.Name,
-		TextSize = options.Size,
-
-		Theme = {
-			TextColor3 = "StrongText",
-			BackgroundColor3 = {"Secondary", -10}
-		},
-		TextXAlignment = Enum.TextXAlignment.Center,
-		AnchorPoint = Vector2.new(0.5, 0.5)
-	})
-	text.Size = UDim2.fromOffset(text.TextBounds.X + 4, text.TextBounds.Y)
-	
-		if options.Bold then 
-		if options.Bold == true then
-		text.Font = Enum.Font.SourceSansBold 
-		end
-		end
-	local functionContainer = sectionContainer:object("Frame", {
-		Size = UDim2.fromScale(1, 1),
-		BackgroundTransparency = 1
-	})
-
-
-	local layout = functionContainer:object("UIListLayout", {
-		Padding = UDim.new(0, 10),
-		HorizontalAlignment = Enum.HorizontalAlignment.Center
-	})
-
-	functionContainer:object("UIPadding", {
-		PaddingTop = UDim.new(0, 10)
-	})
-
-	return setmetatable({
-		statusText = self.statusText,
-		container = functionContainer,
-		sectionContainer = sectionContainer,
-		parentContainer = self.container,
-		Theme = self.Theme,
-		core = self.core,
-		parentLayout = self.layout,
-		layout = layout
-	}, Library)
-end
 
 function Library:button(options)
 	options = self:set_defaults({
