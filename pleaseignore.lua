@@ -435,7 +435,7 @@ function Library:create(options)
 		Name = "BURNED",
 		Size = UDim2.fromOffset(600, 400),
 		Theme = self.Themes[settings.Theme],
-		Link = "https://github.com/deeeity/mercury-lib"
+		Link = "https://github.com/xVicity/BURNED"
 	}, options)
 
 	if getgenv and getgenv().MercuryUI then
