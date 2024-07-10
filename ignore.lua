@@ -689,7 +689,7 @@ function Library:create(options)
 		BackgroundTransparency = 1,
 		Position = UDim2.new(0, 5, 0.5, 0),
 		Size = UDim2.new(0, 15, 0, 15),
-		Image = "http://www.roblox.com/asset/?id=14502433634",
+		Image = "http://www.roblox.com/asset/?id=14502433595",
 		Theme = {ImageColor3 = "StrongText"}
 	})
 
@@ -1072,7 +1072,7 @@ end
 function Library:tab(options)
 	options = self:set_defaults({
 		Name = "New Tab",
-		Icon = "rbxassetid://8569322835"
+		Icon = "rbxassetid://14502433595"
 	}, options)
 
 	local tab = self.container:object("ScrollingFrame", {
@@ -1733,9 +1733,9 @@ function Library:section(options)
 	}):round(7):stroke("Secondary", 2)
 
 	local text = sectionContainer:object("TextLabel", {
-		Position = UDim2.new(0.5),
+		Position = UDim2.new(0.5, 0, 0.5, 0),
 		Text = options.Name,
-		TextSize = 18,
+		TextSize = 60,
 		Theme = {
 			TextColor3 = "StrongText",
 			BackgroundColor3 = {"Secondary", -10}
