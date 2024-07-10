@@ -1749,7 +1749,9 @@ function Library:section(options)
 	text.Size = UDim2.fromOffset(text.TextBounds.X + 4, text.TextBounds.Y)
 	
 		if options.Bold then 
+		print("oh bold exists huh")
 		if options.Bold == true then
+			print("true!!!")
 		text.Font = Enum.Font.SourceSansBold 
 		end
 		end
