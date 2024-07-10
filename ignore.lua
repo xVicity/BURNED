@@ -1744,10 +1744,7 @@ function Library:section(options)
 			BackgroundColor3 = {"Secondary", -10}
 		},
 		TextXAlignment = Enum.TextXAlignment.Center,
-		AnchorPoint = Vector2.new(0.5, 0.5),
-		if options.BoldText then 
-		Font = Enum.Font.SourceSansBold 
-		end
+		AnchorPoint = Vector2.new(0.5, 0.5)
 	})
 	text.Size = UDim2.fromOffset(text.TextBounds.X + 4, text.TextBounds.Y)
 	
